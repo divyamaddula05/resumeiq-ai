@@ -23,8 +23,7 @@ from styles import page_bg
 from ui import show_header, show_metrics, ats_chart
 from geopy.geocoders import Nominatim
 from parser import extract_resume_data
-from nltk.corpus import stopwords
-stop_words = set(stopwords.words('english'))
+
 # libraries used to parse the pdf files
 # from pyresparser import ResumeParser
 from pdfminer3.layout import LAParams, LTTextBox
