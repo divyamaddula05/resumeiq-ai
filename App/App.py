@@ -270,57 +270,74 @@ def run():
 
     ###### Creating Database and Table ######
 
+    if connection and cursor:
 
-    # Create the DB
-    db_sql = """CREATE DATABASE IF NOT EXISTS CV;"""
-    cursor.execute(db_sql)
+        # Create DB
+        db_sql = """CREATE DATABASE IF NOT EXISTS CV;"""
+        cursor.execute(db_sql)
 
+        # Create user_data table
+        DB_table_name = 'user_data'
 
-    # Create table user_data and user_feedback
-    DB_table_name = 'user_data'
-    table_sql = "CREATE TABLE IF NOT EXISTS " + DB_table_name + """
-                    (ID INT NOT NULL AUTO_INCREMENT,
-                    sec_token varchar(20) NOT NULL,
-                    ip_add varchar(50) NULL,
-                    host_name varchar(50) NULL,
-                    dev_user varchar(50) NULL,
-                    os_name_ver varchar(50) NULL,
-                    latlong varchar(50) NULL,
-                    city varchar(50) NULL,
-                    state varchar(50) NULL,
-                    country varchar(50) NULL,
-                    act_name varchar(50) NOT NULL,
-                    act_mail varchar(50) NOT NULL,
-                    act_mob varchar(20) NOT NULL,
-                    Name varchar(500) NOT NULL,
-                    Email_ID VARCHAR(500) NOT NULL,
-                    resume_score VARCHAR(8) NOT NULL,
-                    Timestamp VARCHAR(50) NOT NULL,
-                    Page_no VARCHAR(5) NOT NULL,
-                    Predicted_Field BLOB NOT NULL,
-                    User_level BLOB NOT NULL,
-                    Actual_skills BLOB NOT NULL,
-                    Recommended_skills BLOB NOT NULL,
-                    Recommended_courses BLOB NOT NULL,
-                    pdf_name varchar(50) NOT NULL,
-                    PRIMARY KEY (ID)
-                    );
-                """
-    cursor.execute(table_sql)
-
-
-    DBf_table_name = 'user_feedback'
-    tablef_sql = "CREATE TABLE IF NOT EXISTS " + DBf_table_name + """
-                    (ID INT NOT NULL AUTO_INCREMENT,
-                        feed_name varchar(50) NOT NULL,
-                        feed_email VARCHAR(50) NOT NULL,
-                        feed_score VARCHAR(5) NOT NULL,
-                        comments VARCHAR(100) NULL,
+        table_sql = "CREATE TABLE IF NOT EXISTS " + DB_table_name + """
+                        (ID INT NOT NULL AUTO_INCREMENT,
+                        sec_token varchar(20) NOT NULL,
+                        ip_add varchar(50) NULL,
+                        host_name varchar(50) NULL,
+                        dev_user varchar(50) NULL,
+                        os_name_ver varchar(50) NULL,
+                        latlong varchar(50) NULL,
+                        city varchar(50) NULL,
+                        state varchar(50) NULL,
+                        country varchar(50) NULL,
+                        act_name varchar(50) NOT NULL,
+                        act_mail varchar(50) NOT NULL,
+                        act_mob varchar(20) NOT NULL,
+                        Name varchar(500) NOT NULL,
+                        Email_ID VARCHAR(500) NOT NULL,
+                        resume_score VARCHAR(8) NOT NULL,
                         Timestamp VARCHAR(50) NOT NULL,
+                        Page_no VARCHAR(5) NOT NULL,
+                        Predicted_Field BLOB NOT NULL,
+                        User_level BLOB NOT NULL,
+                        Actual_skills BLOB NOT NULL,
+                        Recommended_skills BLOB NOT NULL,
+                        Recommended_courses BLOB NOT NULL,
+                        pdf_name varchar(50) NOT NULL,
                         PRIMARY KEY (ID)
-                    );
-                """
-    cursor.execute(tablef_sql)
+                        );
+                    """
+
+        cursor.execute(table_sql)
+
+        # Create feedback table
+        DBf_table_name = 'user_feedback'
+
+        tablef_sql = "CREATE TABLE IF NOT EXISTS " + DBf_table_name + """
+                        (ID INT NOT NULL AUTO_INCREMENT,
+                            feed_name varchar(50) NOT NULL,
+                            feed_email VARCHAR(50) NOT NULL,
+                            feed_score VARCHAR(5) NOT NULL,
+                            comments VARCHAR(100) NULL,
+                            Timestamp VARCHAR(50) NOT NULL,
+                            PRIMARY KEY (ID)
+                        );
+                    """
+
+        cursor.execute(tablef_sql)
+
+        DBf_table_name = 'user_feedback'
+        tablef_sql = "CREATE TABLE IF NOT EXISTS " + DBf_table_name + """
+                        (ID INT NOT NULL AUTO_INCREMENT,
+                            feed_name varchar(50) NOT NULL,
+                            feed_email VARCHAR(50) NOT NULL,
+                            feed_score VARCHAR(5) NOT NULL,
+                            comments VARCHAR(100) NULL,
+                            Timestamp VARCHAR(50) NOT NULL,
+                            PRIMARY KEY (ID)
+                        );
+                    """
+        cursor.execute(tablef_sql)
 
 
     ###### CODE FOR CLIENT SIDE (USER) ######
