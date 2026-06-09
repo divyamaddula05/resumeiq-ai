@@ -238,12 +238,16 @@ def run():
     # (Logo, Heading, Sidebar etc)
     # img = Image.open('./Logo/RESUM.png')
     # st.image(img)
-    img = Image.open('./Logo/RESUM.jpg')
+    try:
+        img = Image.open('Logo/RESUM.jpg')
+        st.image(img, width=250)
+
+    except:
+        st.warning("Logo image not found.")
 
     col1, col2, col3 = st.columns([1,2,1])
 
-    with col2:
-        st.image(img, width=250)
+   
     st.sidebar.title("ResumeIQ Dashboard")
     activities = ["User", "Feedback", "About", "Admin"]
     choice = st.sidebar.selectbox("Navigation", activities)
