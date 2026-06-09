@@ -238,13 +238,16 @@ def run():
     # (Logo, Heading, Sidebar etc)
     # img = Image.open('./Logo/RESUM.png')
     # st.image(img)
+    import os
+
+    logo_path = os.path.join("Logo", "RESUM.jpg")
+
     try:
-        img = Image.open('Logo/RESUM.jpg')
+        img = Image.open(logo_path)
         st.image(img, width=250)
 
     except:
         st.warning("Logo image not found.")
-
     col1, col2, col3 = st.columns([1,2,1])
 
    
@@ -380,6 +383,7 @@ def run():
                 time.sleep(4)
         
             ### saving the uploaded resume to folder
+            os.makedirs("Uploaded_Resumes", exist_ok=True)
             save_image_path = './Uploaded_Resumes/'+pdf_file.name
             pdf_name = pdf_file.name
             with open(save_image_path, "wb") as f:
