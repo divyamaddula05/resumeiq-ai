@@ -251,8 +251,8 @@ def run():
     """, unsafe_allow_html=True)
     
     # (Logo, Heading, Sidebar etc)
-    img = Image.open('./Logo/logo.png')
-    st.image(img)
+    # img = Image.open('./Logo/logo.png')
+    # st.image(img)
     # import os
 
     # logo_path = os.path.join("Logo", "resume logo.png")
