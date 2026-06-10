@@ -146,11 +146,20 @@ def pdf_reader(file):
 
 # show uploaded file path to view pdf_display
 def show_pdf(file_path):
-    with open(file_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
 
+    st.subheader("Uploaded Resume")
+
+    with open(file_path, "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+
+    st.download_button(
+        label="📄 Open / Download Resume",
+        data=PDFbyte,
+        file_name="resume.pdf",
+        mime='application/pdf'
+    )
+
+    st.success("Resume uploaded successfully.")
 
 # course recommendations which has data already loaded from Courses.py
 def course_recommender(course_list):
