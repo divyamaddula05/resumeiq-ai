@@ -253,17 +253,32 @@ def run():
     # (Logo, Heading, Sidebar etc)
     # img = Image.open('./Logo/RESUM.png')
     # st.image(img)
+    # import os
+
+    # logo_path = os.path.join("Logo", "resume logo.png")
+
+    # try:
+    #     img = Image.open(logo_path)
+    #     st.image(img, width=250)
+
+    # except:
+    #     st.warning("Logo image not found.")
+    # col1, col2, col3 = st.columns([1,2,1])
     import os
 
     logo_path = os.path.join("Logo", "resume logo.png")
 
-    try:
-        img = Image.open(logo_path)
-        st.image(img, width=250)
-
-    except:
-        st.warning("Logo image not found.")
     col1, col2, col3 = st.columns([1,2,1])
+
+    with col2:
+
+        if os.path.exists(logo_path):
+
+            img = Image.open(logo_path)
+            st.image(img, width=250)
+
+        else:
+            st.warning("Logo image not found.")
 
    
     st.sidebar.title("ResumeIQ Dashboard")
