@@ -172,6 +172,20 @@ streamlit run App.py
 
 ---
 
+## 🚀 Live Demo
+
+🔗 App Link: https://resumeiq-pro.streamlit.app/
+
+Try the AI-powered ResumeIQ ATS Resume Analyzer live.
+
+### Features
+
+* ATS Resume Score
+* Job Description Matching
+* Skills Analysis
+* Resume Recommendations
+* AI Resume Insights
+* Modern Interactive UI
 
 # Author
 
