@@ -145,21 +145,27 @@ def pdf_reader(file):
 
 
 # show uploaded file path to view pdf_display
+# def show_pdf(file_path):
+
+#     st.subheader("Uploaded Resume")
+
+#     with open(file_path, "rb") as pdf_file:
+#         PDFbyte = pdf_file.read()
+
+#     st.download_button(
+#         label="📄 Open / Download Resume",
+#         data=PDFbyte,
+#         file_name="resume.pdf",
+#         mime='application/pdf'
+#     )
+from streamlit_pdf_viewer import pdf_viewer
+
 def show_pdf(file_path):
 
-    st.subheader("Uploaded Resume")
+    st.subheader("Resume Preview")
 
-    with open(file_path, "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-
-    st.download_button(
-        label="📄 Open / Download Resume",
-        data=PDFbyte,
-        file_name="resume.pdf",
-        mime='application/pdf'
-    )
-
-    st.success("Resume uploaded successfully.")
+    pdf_viewer(file_path)
+    # st.success("Resume uploaded successfully.")
 
 # course recommendations which has data already loaded from Courses.py
 def course_recommender(course_list):
@@ -249,7 +255,7 @@ def run():
     # st.image(img)
     import os
 
-    logo_path = os.path.join("Logo", "RESUM.jpg")
+    logo_path = os.path.join("Logo", "resume logo.png")
 
     try:
         img = Image.open(logo_path)
