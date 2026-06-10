@@ -265,12 +265,15 @@ def run():
     #     st.warning("Logo image not found.")
     # col1, col2, col3 = st.columns([1,2,1])
     import os
+    from PIL import Image
 
-    logo_path = os.path.join("Logo", "resume logo.png")
+    logo_path = os.path.join("Logo", "logo.png")
 
     col1, col2, col3 = st.columns([1,2,1])
 
     with col2:
+
+        st.write("Looking for:", os.path.abspath(logo_path))
 
         if os.path.exists(logo_path):
 
@@ -278,7 +281,7 @@ def run():
             st.image(img, width=250)
 
         else:
-            st.warning("Logo image not found.")
+            st.error("Logo image not found.")
 
    
     st.sidebar.title("ResumeIQ Dashboard")
