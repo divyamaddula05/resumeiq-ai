@@ -251,8 +251,8 @@ def run():
     """, unsafe_allow_html=True)
     
     # (Logo, Heading, Sidebar etc)
-    # img = Image.open('./Logo/RESUM.png')
-    # st.image(img)
+    img = Image.open('./Logo/logo.png')
+    st.image(img)
     # import os
 
     # logo_path = os.path.join("Logo", "resume logo.png")
@@ -264,24 +264,24 @@ def run():
     # except:
     #     st.warning("Logo image not found.")
     # col1, col2, col3 = st.columns([1,2,1])
-    import os
-    from PIL import Image
+    # import os
+    # from PIL import Image
 
-    logo_path = os.path.join("Logo", "logo.png")
+    # logo_path = os.path.join("Logo", "logo.png")
 
-    col1, col2, col3 = st.columns([1,2,1])
+    # col1, col2, col3 = st.columns([1,2,1])
 
-    with col2:
+    # with col2:
 
-        st.write("Looking for:", os.path.abspath(logo_path))
+    #     st.write("Looking for:", os.path.abspath(logo_path))
 
-        if os.path.exists(logo_path):
+    #     if os.path.exists(logo_path):
 
-            img = Image.open(logo_path)
-            st.image(img, width=250)
+    #         img = Image.open(logo_path)
+    #         st.image(img, width=250)
 
-        else:
-            st.error("Logo image not found.")
+    #     else:
+    #         st.error("Logo image not found.")
 
    
     st.sidebar.title("ResumeIQ Dashboard")
